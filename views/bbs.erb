@@ -3,7 +3,8 @@
     <article class="box media">
       <div class="meida-content">
         <div class="content">
-          <p><strong>Name:</strong> <%= a.name %><br>
+          <p><strong>Name:</strong> <%= a.name %>
+          <button class="button is-small" type="submit" value=<%= a.id %> form="delete"><span class="has-text-danger fas fa-trash"></span></button><br>
           <strong>ID:</strong> <%= a.id %>
           </p>
           <form action="del" method="post" id="delete" hidden>
@@ -13,7 +14,6 @@
         </div>
       <nav class="level">
         <div class="level-right">
-          <button class="button is-small" type="submit" value=<%= a.id %> form="delete"><span class="has-text-danger fas fa-trash"></span></button>
         </div>
       </nav>
       </div>

@@ -26,7 +26,7 @@ post '/message' do
 	msg.text = "#{sanitize(params[:text].rstrip)}"
     msg.text = allow_html_pairs(msg.text)
 
-	if is_valid_size(eliminate_tag(msg.name), 0, 20) && is_valid_size(eliminate_tag(msg.text), 0, 150) then
+	if is_valid_size(eliminate_tag(msg.name), 0, 20) && is_valid_size(eliminate_tag(msg.text), 0, 20) then
 		begin
             msg.text = allow_html_single(msg.text, "img")
             msg.save
