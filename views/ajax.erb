@@ -1,0 +1,46 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+	</head>
+
+	<body>
+		<script src="jquery.min.js"></script>
+		<form id="form_1" method="post" accept-charset="utf-8" return false>
+			<p><input type="text" name="userid" id="userid"></p>
+			<p><input type="text" name="password" id="password"></p>
+		</form>
+
+		<button id="ajax"></button>
+		<div class="result"></div>
+
+		<script type="text/javascript">
+			$(function() {
+				$('#ajax').on('click', function() {
+					$.ajax({
+						url: 'ajax.txt',
+						type: 'POST',
+						data:{
+							'userid':$('#userid').val(),
+							'password':$('#password').val(),
+						}
+					})
+				});
+
+				.done( (data) => {
+					$('.result').html(data);
+					console.log(data);
+				})
+
+				.fail( (data) => {
+					$('.result').html(data);
+					console.log(data);
+				})
+
+				.always( (data) => {
+				});
+			});
+		</script>
+	</body>
+</html>
+
