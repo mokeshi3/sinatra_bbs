@@ -9,6 +9,7 @@
       <strong>Date:</strong> <%= Time.at(a.write_time).strftime("%Y/%m/%d %p%I:%M:%S") %><br>
       <strong>ID:</strong> <%= a.id %>
       </p>
+      <hr>
       <p style="white-space:pre-wrap; word-wrap:break-word;"><%= a.message %></p>
       <p align="right">
       <button class="button is-small" type="submit" value=<%= a.id %> form="delete<%= a.id %>"><span class="has-text-danger fas fa-trash"></span></button><br>
@@ -23,9 +24,9 @@
     <div class="media-content">
       <form class="field" method="post" action="../../message/<%= @page %>/<%= @contents %>">
         <p class="label">Name:</p>
-        <input class="input" type="text" name="name" size="20" maxlength="20" value="ななし">
+        <input class="input" type="text" name="name" size="120" maxlength="120" value="ななし">
         <p class="label">Contents:</p>
-        <textarea class="textarea"  name="text" cols="50" rows="3" maxlength="150"></textarea>
+        <textarea class="textarea"  name="text" cols="50" rows="5" maxlength="1000"></textarea>
         <br>
         <input class="button is-link" type="submit" value="Post">
         <input class="button is-link-light" type="reset" value="Reset">

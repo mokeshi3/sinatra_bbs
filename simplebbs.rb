@@ -25,7 +25,7 @@ post '/message/:page/:contents' do |page, contents|
 	msg.name = "#{sanitize(params[:name].rstrip)}"
 	msg.message = "#{sanitize(params[:text].rstrip)}"
     msg.write_time = Time.now.to_i
-	if is_valid_size(eliminate_tag(msg.name), 0, 200) && is_valid_size(eliminate_tag(msg.message), 0, 2000) then
+	if is_valid_size(eliminate_tag(msg.name), 0, 200) && is_valid_size(eliminate_tag(msg.message), 0, 1000) then
 		begin
             msg.message = allow_html_pairs(msg.message)
             msg.message = allow_html_single(msg.message, "img")
@@ -61,8 +61,12 @@ get '/bbs/:page/:contents' do |page, contents|
       redirect "/bbs/1/#{contents}"
     end
 
+    if contents <= 0 
+      redirect "/bbs/#{page}/5"
+    end
+
     @s = BBS.all.order("write_time")
-    max_page = @s.size/contents+ if @s.size%contents != 0 then 1 else 0 end
+    max_page = @s.size/contents + if @s.size%contents != 0 then 1 else 0 end
 
     # 何もないページが生成されないようにする
     if @s.size - page*contents <= - contents && @s.size != 0
@@ -81,7 +85,7 @@ get '/bbs/:page/:contents' do |page, contents|
 
     paging = []
     (page-2..page+2).each { |p|
-      if p <= 0 
+      if p <= 1 
         next
       end
 
@@ -92,8 +96,13 @@ get '/bbs/:page/:contents' do |page, contents|
       paging.append(p)
     }
 
-    if paging[0] == 2
-      paging.insert(0, 1)
+    if paging.size == 0
+      paging = [1]
+    end
+
+    puts "#{paging}"
+    if paging.size > 2 && paging[1] > 2
+      paging.insert(2, -1)
     elsif paging[0] > 2
       paging.insert(0, 1, -1)
     end
