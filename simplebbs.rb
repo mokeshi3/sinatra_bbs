@@ -22,18 +22,22 @@ post '/message/:page/:contents' do |page, contents|
 	# hex文字列で乱数を生成するため、72bitの乱数を生成する。
 	# SecureRandom.hex(n)はn*2の長さの文字列を返す。1文字につき4bitのデータを持つため、引数は9
 	msg.id = SecureRandom.hex(9)
-	msg.name = "#{sanitize(params[:name].rstrip)}"
-	msg.message = "#{sanitize(params[:text].rstrip)}"
+	msg.name = "#{params[:name].rstrip}"
+	msg.message = "#{params[:text].rstrip}"
     msg.write_time = Time.now.to_i
-	if is_valid_size(eliminate_tag(msg.name), 0, 200) && is_valid_size(eliminate_tag(msg.message), 0, 1000) then
-		begin
-            msg.message = allow_html_pairs(msg.message)
-            msg.message = allow_html_single(msg.message, "img")
-            msg.save
-		rescue ActiveRecord::RecordNotUnique
-			redirect "/message/#{page}/#{contents}"
-		end
-	end
+    if is_valid_size(msg.name, 0, 200) && is_valid_size(msg.message, 0, 1000)
+      begin
+          msg.name = sanitize(msg.name)
+          msg.message = sanitize(msg.message)
+          msg.message = allow_html_pairs(msg.message)
+          msg.message = allow_html_single(msg.message, "img")
+          if is_valid_size(msg.name, 0, 800) && is_valid_size(msg.message, 0, 4000) != 0
+              msg.save
+          end
+      rescue ActiveRecord::RecordNotUnique
+          redirect "/message/#{page}/#{contents}"
+      end
+    end
 
 	redirect "/bbs/#{page}/#{contents}"
 end
