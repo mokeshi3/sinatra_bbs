@@ -1,39 +1,55 @@
 <div class="container">
+  <% @cnt = (@page-1)*5 %>
   <% @s.each do |a| %>
-    <article class="box media">
-      <div class="meida-content">
-        <div class="content">
-          <p>
-          <button class="button is-small" type="submit" value=<%= a.id %> form="delete"><span class="has-text-danger fas fa-trash"></span></button><br>
-          <strong>Name:</strong> <%= a.name %><br>
-          <strong>Date:</strong> <%= Time.at(a.write_time).strftime("%Y/%m/%d %p%I:%M:%S") %><br>
-          <strong>ID:</strong> <%= a.id %>
-          </p>
-          <form action="..//del" method="post" id="delete" hidden>
-            <input type="hidden" name="id" value=<%= a.id %>>
-          </form>
-          <p style="white-space:pre-wrap; word-wrap:break-word;"><%= a.message %></p>
-        </div>
-      <nav class="level">
-        <div class="level-right">
-        </div>
-      </nav>
-      </div>
-
-    </article>
+  <% @cnt = @cnt + 1 %>
+    <div class="box">
+      <p>
+      <strong>No:<%= @cnt %></strong><br>
+      <strong>Name:</strong> <%= a.name %><br>
+      <strong>Date:</strong> <%= Time.at(a.write_time).strftime("%Y/%m/%d %p%I:%M:%S") %><br>
+      <strong>ID:</strong> <%= a.id %>
+      </p>
+      <p style="white-space:pre-wrap; word-wrap:break-word;"><%= a.message %></p>
+      <p align="right">
+      <button class="button is-small" type="submit" value=<%= a.id %> form="delete<%= a.id %>"><span class="has-text-danger fas fa-trash"></span></button><br>
+        <form action="../../del/<%= @page %>/<%= @contents %>" method="post" id="delete<%= a.id %>" hidden>
+        <input type="hidden" name="id" value=<%= a.id %>>
+      </form>
+      </p>
+    </div>
   <% end %>
 
-    <article class="box media">
-      <div class="media-content">
-        <form class="field" method="post" action="../message">
-          <p class="label">Name:</p>
-          <input class="input" type="text" name="name" size="20" maxlength="20" value="ななし">
-          <p class="label">Contents:</p>
-          <textarea class="textarea"  name="text" cols="50" rows="3" maxlength="150"></textarea>
-          <br>
-          <input class="button is-link" type="submit" value="Post">
-          <input class="button is-link-light" type="reset" value="Reset">
-        </form>
-      </div>
-    </article>
+  <article class="box media">
+    <div class="media-content">
+      <form class="field" method="post" action="../../message/<%= @page %>/<%= @contents %>">
+        <p class="label">Name:</p>
+        <input class="input" type="text" name="name" size="20" maxlength="20" value="ななし">
+        <p class="label">Contents:</p>
+        <textarea class="textarea"  name="text" cols="50" rows="3" maxlength="150"></textarea>
+        <br>
+        <input class="button is-link" type="submit" value="Post">
+        <input class="button is-link-light" type="reset" value="Reset">
+      </form>
+    </div>
+  </article>
+
+  <div class="container box">
+    <nav class="pagination is-centered">
+      <ul class="pagination-list">
+      <% @paging.each do |p| %>
+      <li>
+        <% if p > 0 then %>
+        <a class="pagination-link <%= if p == @page then 'is-current' else '' end %>"
+             href='<%= if @page != p then "/bbs/#{p}/#{@contents}" end %>'>
+               <%= p %>
+        </a>
+        <% else %>
+          <span class="pagination-sllipsis">&hellip;</span>
+        <% end %>
+        </li>
+      <% end %>
+      </ul>
+    </nav>
+  </div>
+
 </div>

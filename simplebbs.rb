@@ -12,10 +12,10 @@ end
 set :environment, :production
 
 get '/' do
-	redirect '/bbs'
+	redirect '/bbs/1/5'
 end
 
-post '/message' do
+post '/message/:page/:contents' do |page, contents|
 	msg = BBS.new
 	# 0.1秒毎にIDを生成してしたとき、重複するIDが生成されるまでの期待値が100年になるようにする。
 	# 鳩の巣原理と誕生日のパラドクスより、70bitの乱数でこれを達成できることがわかる
@@ -35,19 +35,77 @@ post '/message' do
 		end
 	end
 
-	redirect "/bbs/1"
+	redirect "/bbs/#{page}/#{contents}"
 end
 
 get '/bbs' do
-    redirect '/bbs/1'
+    redirect '/bbs/1/5'
 end
 
 get '/bbs/:page' do |page|
+  redirect "/bbs/#{page}/5"
+end
+
+get '/bbs/:page/:contents' do |page, contents|
     if not page.is_number? 
-        redirect '/bbs/1'
+        redirect '/bbs/1/5'
+    end
+    page = page.to_i
+
+    if not page.is_number?
+      redirect "/bbs/#{page}/5"
+    end
+    contents = contents.to_i
+
+    if page <= 0 
+      redirect "/bbs/1/#{contents}"
     end
 
-	@s = BBS.all
+    @s = BBS.all.order("write_time")
+    max_page = @s.size/contents+ if @s.size%contents != 0 then 1 else 0 end
+
+    # 何もないページが生成されないようにする
+    if @s.size - page*contents <= - contents && @s.size != 0
+      redirect "bbs/#{page-1}/#{contents}"
+    end
+
+    # 残りの投稿数
+    rest = @s.size - contents*(page-1)
+    if rest < 0 
+      rest = 0
+    end
+
+    @s = @s.take(page*contents).last(if rest >= contents then contents else rest end)
+    @page = page
+    @contents = contents
+
+    paging = []
+    (page-2..page+2).each { |p|
+      if p <= 0 
+        next
+      end
+
+      if p > max_page 
+        next
+      end
+
+      paging.append(p)
+    }
+
+    if paging[0] == 2
+      paging.insert(0, 1)
+    elsif paging[0] > 2
+      paging.insert(0, 1, -1)
+    end
+
+    if paging[-1] == max_page-1
+      paging.append(max_page)
+    elsif paging[-1] <= max_page-2
+      paging.append(-1)
+      paging.append(max_page)
+    end
+
+    @paging = paging
 	erb :bbs
 end
 
@@ -55,72 +113,70 @@ get '/badrequest' do
 	erb :badrequest
 end
 
-post '/del' do
+post '/del/:page/:contents' do |page, contents|
   begin
 	msg = BBS.find(params[:id])
 	msg.destroy
   rescue
   end
-	redirect "/bbs"
+	redirect "/bbs/#{page}/#{contents}"
 end
 
-helpers do 
-	def sanitize(text)
-		dame = /<|>|!|"|#|$|%|&|`|'|\*/
-		iiyo = {"<"=>"&#060", ">"=>"&#062", "!"=>"&#033", "\""=>"&#034", "#"=>"&#035", "%"=>"&#037", "&"=>"&#038", "'"=>"&#039", "\*"=>"&#042"}
+def sanitize(text)
+  dame = /<|>|!|"|#|$|%|&|`|'|\*/
+  iiyo = {"<"=>"&#060", ">"=>"&#062", "!"=>"&#033", "\""=>"&#034", "#"=>"&#035", "%"=>"&#037", "&"=>"&#038", "'"=>"&#039", "\*"=>"&#042"}
 
-		text = text.gsub(dame){iiyo[$&]}
+  text = text.gsub(dame){iiyo[$&]}
 
-        return text
-	end
+  return text
+end
 
-    def desanitize(text)
-      iiyo = /\&\#060|\&\#062|\&\#033|\&\#034|\&\#035|\&\#037|\&\#039|\&\#042/
-      moto = {"&#060"=>"<", "&#062"=>">", "&#033"=>"!", "&#034"=>"\"", "&#035"=>"#", "&#037"=>"%", "&#038"=>"&", "&#039"=>"'", "&#042"=>"*"}
-      text = text.gsub(iiyo){moto[$&]}
-      return text
+def desanitize(text)
+  iiyo = /\&\#060|\&\#062|\&\#033|\&\#034|\&\#035|\&\#037|\&\#039|\&\#042/
+  moto = {"&#060"=>"<", "&#062"=>">", "&#033"=>"!", "&#034"=>"\"", "&#035"=>"#", "&#037"=>"%", "&#038"=>"&", "&#039"=>"'", "&#042"=>"*"}
+  text = text.gsub(iiyo){moto[$&]}
+  return text
+end
+
+def allow_html_pairs(text)
+  text = allow_html_pair(text, "strong")
+  text = allow_html_pair(text, "h1")
+  text = allow_html_pair(text, "h2")
+  text = allow_html_pair(text, "h3")
+  text = allow_html_pair(text, "h4")
+  text = allow_html_pair(text, "font")
+  text = allow_html_pair(text, "b")
+  text = allow_html_pair(text, "i")
+  text = allow_html_pair(text, "s")
+  text = allow_html_pair(text, "u")
+  text = allow_html_pair(text, "strike")
+  text = allow_html_pair(text, "em")
+  text = allow_html_pair(text, "del")
+  text = allow_html_pair(text, "code")
+  return text
+end
+
+def allow_html_pair(text, tag)
+  if text.match(/\&\#060#{tag}.*?\&\#060\/#{tag}\&\#062/) != nil
+      text = text.sub(/\&\#060#{tag}/, "<#{tag}")
+      text = text.sub(/\&\#062/, ">")
+      text = text.sub(/\&\#060\/#{tag}\&\#062/, "</#{tag}>")
+      text = allow_html_pair(text, tag)
     end
+    return text
+end
 
-    def allow_html_pairs(text)
-      text = allow_html_pair(text, "strong")
-      text = allow_html_pair(text, "h1")
-      text = allow_html_pair(text, "h2")
-      text = allow_html_pair(text, "h3")
-      text = allow_html_pair(text, "h4")
-      text = allow_html_pair(text, "font")
-      text = allow_html_pair(text, "b")
-      text = allow_html_pair(text, "i")
-      text = allow_html_pair(text, "s")
-      text = allow_html_pair(text, "u")
-      text = allow_html_pair(text, "strike")
-      text = allow_html_pair(text, "em")
-      text = allow_html_pair(text, "del")
-      text = allow_html_pair(text, "code")
-      return text
-    end
-
-    def allow_html_pair(text, tag)
-        if text.match(/\&\#060#{tag}.*?\&\#060\/#{tag}\&\#062/) != nil
-          text = text.sub(/\&\#060#{tag}/, "<#{tag}")
-          text = text.sub(/\&\#062/, ">")
-          text = text.sub(/\&\#060\/#{tag}\&\#062/, "</#{tag}>")
-          text = allow_html_pair(text, tag)
-        end
-        return text
-    end
-
-    def allow_html_single(text, tag)
-      matched = text.match(/\&\#060#{tag}.*?#062/)
-      if matched != nil
-          matched = matched.string
-          html = desanitize(matched)
-          puts "#{html}"
-          text = text.sub(/#{matched}/, html)
-          puts "#{text}"
-          text = allow_html_single(text, tag)
-      end
-      return text
-    end
+def allow_html_single(text, tag)
+  matched = text.match(/\&\#060#{tag}.*?#062/)
+  if matched != nil
+      matched = matched.string
+      html = desanitize(matched)
+      puts "#{html}"
+      text = text.sub(/#{matched}/, html)
+      puts "#{text}"
+      text = allow_html_single(text, tag)
+  end
+  return text
 end
 
 def is_valid_size(text, min, max) 
