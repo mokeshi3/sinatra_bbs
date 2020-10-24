@@ -31,7 +31,7 @@ post '/message/:page/:contents' do |page, contents|
             msg.message = allow_html_single(msg.message, "img")
             msg.save
 		rescue ActiveRecord::RecordNotUnique
-			redirect "/badrequest"
+			redirect "/message/#{page}/#{contents}"
 		end
 	end
 
