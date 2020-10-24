@@ -1,5 +1,6 @@
 CREATE TABLE bbs (
-	id char(9) primary key,
-	name varchar(20),
-	text varchar(20)
+	id text primary key,
+	name text,
+	message text,
+	write_time integer
 );

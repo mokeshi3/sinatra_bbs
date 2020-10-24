@@ -3,14 +3,16 @@
     <article class="box media">
       <div class="meida-content">
         <div class="content">
-          <p><strong>Name:</strong> <%= a.name %>
+          <p>
           <button class="button is-small" type="submit" value=<%= a.id %> form="delete"><span class="has-text-danger fas fa-trash"></span></button><br>
+          <strong>Name:</strong> <%= a.name %><br>
+          <strong>Date:</strong> <%= Time.at(a.write_time).strftime("%Y/%m/%d %p%I:%M:%S") %><br>
           <strong>ID:</strong> <%= a.id %>
           </p>
-          <form action="del" method="post" id="delete" hidden>
+          <form action="..//del" method="post" id="delete" hidden>
             <input type="hidden" name="id" value=<%= a.id %>>
           </form>
-          <p style="white-space:pre-wrap; word-wrap:break-word;"><%= a.text %></p>
+          <p style="white-space:pre-wrap; word-wrap:break-word;"><%= a.message %></p>
         </div>
       <nav class="level">
         <div class="level-right">
@@ -23,7 +25,7 @@
 
     <article class="box media">
       <div class="media-content">
-        <form class="field" method="post" action="/message">
+        <form class="field" method="post" action="../message">
           <p class="label">Name:</p>
           <input class="input" type="text" name="name" size="20" maxlength="20" value="ななし">
           <p class="label">Contents:</p>

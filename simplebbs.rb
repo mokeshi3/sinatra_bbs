@@ -23,22 +23,30 @@ post '/message' do
 	# SecureRandom.hex(n)はn*2の長さの文字列を返す。1文字につき4bitのデータを持つため、引数は9
 	msg.id = SecureRandom.hex(9)
 	msg.name = "#{sanitize(params[:name].rstrip)}"
-	msg.text = "#{sanitize(params[:text].rstrip)}"
-    msg.text = allow_html_pairs(msg.text)
-
-	if is_valid_size(eliminate_tag(msg.name), 0, 20) && is_valid_size(eliminate_tag(msg.text), 0, 20) then
+	msg.message = "#{sanitize(params[:text].rstrip)}"
+    msg.write_time = Time.now.to_i
+	if is_valid_size(eliminate_tag(msg.name), 0, 200) && is_valid_size(eliminate_tag(msg.message), 0, 2000) then
 		begin
-            msg.text = allow_html_single(msg.text, "img")
+            msg.message = allow_html_pairs(msg.message)
+            msg.message = allow_html_single(msg.message, "img")
             msg.save
 		rescue ActiveRecord::RecordNotUnique
 			redirect "/badrequest"
 		end
 	end
 
-	redirect "/bbs"
+	redirect "/bbs/1"
 end
 
-get '/bbs' do 
+get '/bbs' do
+    redirect '/bbs/1'
+end
+
+get '/bbs/:page' do |page|
+    if not page.is_number? 
+        redirect '/bbs/1'
+    end
+
 	@s = BBS.all
 	erb :bbs
 end
@@ -127,4 +135,10 @@ end
 
 def eliminate_tag(text)
   return text.gsub(/<.*?>/, "")
+end
+
+class Object
+  def is_number?
+    to_f.to_s == to_s || to_i.to_s == to_s
+  end
 end
