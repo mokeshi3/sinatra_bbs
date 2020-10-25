@@ -107,7 +107,8 @@ get '/bbs/:page/:contents' do |page, contents|
     puts "#{paging}"
     if paging.size > 2 && paging[1] > 2
       paging.insert(2, -1)
-    elsif paging[0] > 2
+    end
+    if paging[0] > 2
       paging.insert(0, 1, -1)
     end
 
@@ -184,9 +185,7 @@ def allow_html_single(text, tag)
   if matched != nil
       matched = matched.string
       html = desanitize(matched)
-      puts "#{html}"
       text = text.sub(/#{matched}/, html)
-      puts "#{text}"
       text = allow_html_single(text, tag)
   end
   return text
@@ -200,10 +199,6 @@ def is_valid_size(text, min, max)
 	else
 		return false
 	end
-end
-
-def eliminate_tag(text)
-  return text.gsub(/<.*?>/, "")
 end
 
 class Object
