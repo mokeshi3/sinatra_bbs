@@ -73,8 +73,8 @@ get '/bbs/:page/:contents' do |page, contents|
     max_page = @s.size/contents + if @s.size%contents != 0 then 1 else 0 end
 
     # 何もないページが生成されないようにする
-    if @s.size - page*contents <= - contents && @s.size != 0
-      redirect "bbs/#{page-1}/#{contents}"
+    if page > max_page && @s.size != 0
+      redirect "bbs/#{max_page}/#{contents}"
     end
 
     # 残りの投稿数
