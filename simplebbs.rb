@@ -29,6 +29,8 @@ post '/message/:page/:contents' do |page, contents|
       begin
           msg.name = sanitize(msg.name)
           msg.message = sanitize(msg.message)
+          puts "name: #{msg.name}"
+          puts "message: #{msg.message}"
           msg.message = allow_html_pairs(msg.message)
           msg.message = allow_html_single(msg.message, "img")
           if is_valid_size(msg.name, 0, 800) && is_valid_size(msg.message, 0, 4000) != 0
