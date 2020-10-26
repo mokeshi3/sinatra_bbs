@@ -137,8 +137,8 @@ post '/del/:page/:contents' do |page, contents|
 end
 
 def sanitize(text)
-  dame = /<|>|"|#|`|'|\*|\\/
-  iiyo = {"<"=>"&#060", ">"=>"&#062", "\""=>"&#034", "#"=>"&#035", "`"=>"&#096", "'"=>"&#039", "\*"=>"&#042", "\\"=>"&#092"}
+  dame = /<|>|"|#|`|'|\*|\\|;|:/
+  iiyo = {"<"=>"&#060", ">"=>"&#062", "\""=>"&#034", "#"=>"&#035", "`"=>"&#096", "'"=>"&#039", "\*"=>"&#042", "\\"=>"&#092", ";"=>"&#059", ":"=>"&#058"}
 
   text = text.gsub(dame){iiyo[$&]}
 
@@ -146,18 +146,14 @@ def sanitize(text)
 end
 
 def desanitize(text)
-  iiyo = /\&\#060|\&\#062|\&\#034|\&\#035|\&\#096|\&\#039|\&\#042|\&\#092/
-  moto = {"&#060"=>"<", "&#062"=>">", "&#034"=>"\"", "&#035"=>"#", "&#096"=>"`", "&#039"=>"'", "&#042"=>"*", "&#092"=>"\\"}
+  iiyo = /\&\#060|\&\#062|\&\#034|\&\#035|\&\#096|\&\#039|\&\#042|\&\#092|\&\#059|\&\#058/
+  moto = {"&#060"=>"<", "&#062"=>">", "&#034"=>"\"", "&#035"=>"#", "&#096"=>"`", "&#039"=>"'", "&#042"=>"*", "&#092"=>"\\", "&#059"=>";", "&#058"=>":"}
   text = text.gsub(iiyo){moto[$&]}
   return text
 end
 
 def allow_html_pairs(text)
   text = allow_html_pair(text, "strong")
-  text = allow_html_pair(text, "h1")
-  text = allow_html_pair(text, "h2")
-  text = allow_html_pair(text, "h3")
-  text = allow_html_pair(text, "h4")
   text = allow_html_pair(text, "font")
   text = allow_html_pair(text, "b")
   text = allow_html_pair(text, "i")
