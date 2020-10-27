@@ -32,12 +32,12 @@ post '/message/:page/:contents' do |page, contents|
           puts "name: #{msg.name}"
           puts "message: #{msg.message}"
           msg.message = allow_html_pairs(msg.message)
-          msg.message = allow_html_single(msg.message, "img")
           if is_valid_size(msg.name, 0, 800) && is_valid_size(msg.message, 0, 4000) != 0
               msg.save
           end
       rescue ActiveRecord::RecordNotUnique
           redirect "/message/#{page}/#{contents}"
+      rescue
       end
     end
 
@@ -85,6 +85,7 @@ get '/bbs/:page/:contents' do |page, contents|
       rest = 0
     end
 
+    puts "#{rest} #{@s.size}"
     @s = @s.take(page*contents).last(if rest >= contents then contents else rest end)
     @page = page
     @contents = contents
@@ -129,11 +130,11 @@ end
 
 post '/del/:page/:contents' do |page, contents|
   begin
-	msg = BBS.find(params[:id])
+	msg = BBS.find(sanitize(params[:id]))
 	msg.destroy
   rescue
   end
-	redirect "/bbs/#{page}/#{contents}"
+  redirect "/bbs/#{page}/#{contents}"
 end
 
 def sanitize(text)
@@ -168,23 +169,11 @@ end
 
 def allow_html_pair(text, tag)
   if text.match(/\&\#060#{tag}.*?\&\#062\&\#060\/#{tag}\&\#062/) != nil
-      text = text.sub(/\&\#060#{tag}/, "<#{tag}")
-      text = text.sub(/\&\#062/, ">")
+      text = text.sub(/\&\#060#{tag}\&\#062/, "<#{tag}>")
       text = text.sub(/\&\#060\/#{tag}\&\#062/, "</#{tag}>")
       text = allow_html_pair(text, tag)
     end
     return text
-end
-
-def allow_html_single(text, tag)
-  matched = text.match(/\&\#060#{tag}.*?#062/)
-  if matched != nil
-      matched = matched.string
-      html = desanitize(matched)
-      text = text.sub(/#{matched}/, html)
-      text = allow_html_single(text, tag)
-  end
-  return text
 end
 
 def is_valid_size(text, min, max) 
