@@ -167,7 +167,7 @@ def allow_html_pairs(text)
 end
 
 def allow_html_pair(text, tag)
-  if text.match(/\&\#060#{tag}.*?\&\#060\/#{tag}\&\#062/) != nil
+  if text.match(/\&\#060#{tag}.*?\&\#062\&\#060\/#{tag}\&\#062/) != nil
       text = text.sub(/\&\#060#{tag}/, "<#{tag}")
       text = text.sub(/\&\#062/, ">")
       text = text.sub(/\&\#060\/#{tag}\&\#062/, "</#{tag}>")
