@@ -106,12 +106,10 @@ get '/bbs/:page/:contents' do |page, contents|
       paging = [1]
     end
 
-    puts "#{paging}"
-    if paging.size > 2 && paging[1] > 2
-      paging.insert(2, -1)
-    end
-    if paging[0] > 2
+    if paging[0] > 2 
       paging.insert(0, 1, -1)
+    elsif paging[0] == 2
+      paging.insert(0, 1)
     end
 
     if paging[-1] == max_page-1
