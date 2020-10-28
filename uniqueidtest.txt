@@ -1,23 +1,261 @@
-I create id 46
-I create id 58
-I create id 30
-I create id 3d
-I create id 8e
-I create id 20
-I create id 78
-I create id dd
-I create id bb
-I create id 44
-I create id 0e
-I create id df
-I create id 18
-I create id 0f
-I create id 58
-58 is not unique!
-I create id 2c
-I create id 39
-I create id 32
-I create id 9e
-I create id 6c
-I create id b9
-I create id 29
+I recive ID:78 Message:1
+10.0.2.2 - - [28/Oct/2020:18:36:07 +0900] "POST /message/1/1 HTTP/1.1" 303 - 0.0564
+10.0.2.2 - - [28/Oct/2020:18:36:07 JST] "POST /message/1/1 HTTP/1.1" 303 0
+http://localhost:9998/bbs/1/1 -> /message/1/1
+10.0.2.2 - - [28/Oct/2020:18:36:07 +0900] "GET /bbs/1/1 HTTP/1.1" 200 2407 0.0082
+10.0.2.2 - - [28/Oct/2020:18:36:07 JST] "GET /bbs/1/1 HTTP/1.1" 200 2407
+http://localhost:9998/bbs/1/1 -> /bbs/1/1
+I recive ID:d3 Message:2
+10.0.2.2 - - [28/Oct/2020:18:36:11 +0900] "POST /message/1/1 HTTP/1.1" 303 - 0.0224
+10.0.2.2 - - [28/Oct/2020:18:36:10 JST] "POST /message/1/1 HTTP/1.1" 303 0
+http://localhost:9998/bbs/1/1 -> /message/1/1
+10.0.2.2 - - [28/Oct/2020:18:36:11 +0900] "GET /bbs/1/1 HTTP/1.1" 200 2553 0.0020
+10.0.2.2 - - [28/Oct/2020:18:36:11 JST] "GET /bbs/1/1 HTTP/1.1" 200 2553
+http://localhost:9998/bbs/1/1 -> /bbs/1/1
+I recive ID:9e Message:3
+10.0.2.2 - - [28/Oct/2020:18:36:14 +0900] "POST /message/1/1 HTTP/1.1" 303 - 0.0282
+10.0.2.2 - - [28/Oct/2020:18:36:14 JST] "POST /message/1/1 HTTP/1.1" 303 0
+http://localhost:9998/bbs/1/1 -> /message/1/1
+10.0.2.2 - - [28/Oct/2020:18:36:14 +0900] "GET /bbs/1/1 HTTP/1.1" 200 2699 0.0026
+10.0.2.2 - - [28/Oct/2020:18:36:14 JST] "GET /bbs/1/1 HTTP/1.1" 200 2699
+http://localhost:9998/bbs/1/1 -> /bbs/1/1
+I recive ID:3d Message:4
+10.0.2.2 - - [28/Oct/2020:18:36:15 +0900] "POST /message/1/1 HTTP/1.1" 303 - 0.0244
+10.0.2.2 - - [28/Oct/2020:18:36:15 JST] "POST /message/1/1 HTTP/1.1" 303 0
+http://localhost:9998/bbs/1/1 -> /message/1/1
+10.0.2.2 - - [28/Oct/2020:18:36:15 +0900] "GET /bbs/1/1 HTTP/1.1" 200 2845 0.0019
+10.0.2.2 - - [28/Oct/2020:18:36:15 JST] "GET /bbs/1/1 HTTP/1.1" 200 2845
+http://localhost:9998/bbs/1/1 -> /bbs/1/1
+I recive ID:d9 Message:5
+10.0.2.2 - - [28/Oct/2020:18:36:17 +0900] "POST /message/1/1 HTTP/1.1" 303 - 0.0267
+10.0.2.2 - - [28/Oct/2020:18:36:17 JST] "POST /message/1/1 HTTP/1.1" 303 0
+http://localhost:9998/bbs/1/1 -> /message/1/1
+10.0.2.2 - - [28/Oct/2020:18:36:17 +0900] "GET /bbs/1/1 HTTP/1.1" 200 2955 0.0026
+10.0.2.2 - - [28/Oct/2020:18:36:17 JST] "GET /bbs/1/1 HTTP/1.1" 200 2955
+http://localhost:9998/bbs/1/1 -> /bbs/1/1
+I recive ID:1d Message:6
+10.0.2.2 - - [28/Oct/2020:18:36:18 +0900] "POST /message/1/1 HTTP/1.1" 303 - 0.0219
+10.0.2.2 - - [28/Oct/2020:18:36:18 JST] "POST /message/1/1 HTTP/1.1" 303 0
+http://localhost:9998/bbs/1/1 -> /message/1/1
+10.0.2.2 - - [28/Oct/2020:18:36:18 +0900] "GET /bbs/1/1 HTTP/1.1" 200 2955 0.0021
+10.0.2.2 - - [28/Oct/2020:18:36:18 JST] "GET /bbs/1/1 HTTP/1.1" 200 2955
+http://localhost:9998/bbs/1/1 -> /bbs/1/1
+I recive ID:d1 Message:7
+10.0.2.2 - - [28/Oct/2020:18:36:20 +0900] "POST /message/1/1 HTTP/1.1" 303 - 0.0268
+10.0.2.2 - - [28/Oct/2020:18:36:20 JST] "POST /message/1/1 HTTP/1.1" 303 0
+http://localhost:9998/bbs/1/1 -> /message/1/1
+10.0.2.2 - - [28/Oct/2020:18:36:20 +0900] "GET /bbs/1/1 HTTP/1.1" 200 2955 0.0018
+10.0.2.2 - - [28/Oct/2020:18:36:20 JST] "GET /bbs/1/1 HTTP/1.1" 200 2955
+http://localhost:9998/bbs/1/1 -> /bbs/1/1
+I recive ID:3c Message:8
+10.0.2.2 - - [28/Oct/2020:18:36:21 +0900] "POST /message/1/1 HTTP/1.1" 303 - 0.0249
+10.0.2.2 - - [28/Oct/2020:18:36:21 JST] "POST /message/1/1 HTTP/1.1" 303 0
+http://localhost:9998/bbs/1/1 -> /message/1/1
+10.0.2.2 - - [28/Oct/2020:18:36:21 +0900] "GET /bbs/1/1 HTTP/1.1" 200 2955 0.0020
+10.0.2.2 - - [28/Oct/2020:18:36:21 JST] "GET /bbs/1/1 HTTP/1.1" 200 2955
+http://localhost:9998/bbs/1/1 -> /bbs/1/1
+I recive ID:cf Message:9
+10.0.2.2 - - [28/Oct/2020:18:36:23 +0900] "POST /message/1/1 HTTP/1.1" 303 - 0.0230
+10.0.2.2 - - [28/Oct/2020:18:36:23 JST] "POST /message/1/1 HTTP/1.1" 303 0
+http://localhost:9998/bbs/1/1 -> /message/1/1
+10.0.2.2 - - [28/Oct/2020:18:36:23 +0900] "GET /bbs/1/1 HTTP/1.1" 200 2955 0.0020
+10.0.2.2 - - [28/Oct/2020:18:36:23 JST] "GET /bbs/1/1 HTTP/1.1" 200 2955
+http://localhost:9998/bbs/1/1 -> /bbs/1/1
+I recive ID:04 Message:10
+10.0.2.2 - - [28/Oct/2020:18:36:25 +0900] "POST /message/1/1 HTTP/1.1" 303 - 0.0221
+10.0.2.2 - - [28/Oct/2020:18:36:25 JST] "POST /message/1/1 HTTP/1.1" 303 0
+http://localhost:9998/bbs/1/1 -> /message/1/1
+10.0.2.2 - - [28/Oct/2020:18:36:25 +0900] "GET /bbs/1/1 HTTP/1.1" 200 2957 0.0019
+10.0.2.2 - - [28/Oct/2020:18:36:25 JST] "GET /bbs/1/1 HTTP/1.1" 200 2957
+http://localhost:9998/bbs/1/1 -> /bbs/1/1
+I recive ID:48 Message:11
+10.0.2.2 - - [28/Oct/2020:18:36:26 +0900] "POST /message/1/1 HTTP/1.1" 303 - 0.0241
+10.0.2.2 - - [28/Oct/2020:18:36:26 JST] "POST /message/1/1 HTTP/1.1" 303 0
+http://localhost:9998/bbs/1/1 -> /message/1/1
+10.0.2.2 - - [28/Oct/2020:18:36:26 +0900] "GET /bbs/1/1 HTTP/1.1" 200 2957 0.0030
+10.0.2.2 - - [28/Oct/2020:18:36:26 JST] "GET /bbs/1/1 HTTP/1.1" 200 2957
+http://localhost:9998/bbs/1/1 -> /bbs/1/1
+I recive ID:81 Message:12
+10.0.2.2 - - [28/Oct/2020:18:36:27 +0900] "POST /message/1/1 HTTP/1.1" 303 - 0.0250
+10.0.2.2 - - [28/Oct/2020:18:36:27 JST] "POST /message/1/1 HTTP/1.1" 303 0
+http://localhost:9998/bbs/1/1 -> /message/1/1
+10.0.2.2 - - [28/Oct/2020:18:36:27 +0900] "GET /bbs/1/1 HTTP/1.1" 200 2957 0.0021
+10.0.2.2 - - [28/Oct/2020:18:36:27 JST] "GET /bbs/1/1 HTTP/1.1" 200 2957
+http://localhost:9998/bbs/1/1 -> /bbs/1/1
+I recive ID:d2 Message:13
+10.0.2.2 - - [28/Oct/2020:18:36:29 +0900] "POST /message/1/1 HTTP/1.1" 303 - 0.0246
+10.0.2.2 - - [28/Oct/2020:18:36:29 JST] "POST /message/1/1 HTTP/1.1" 303 0
+http://localhost:9998/bbs/1/1 -> /message/1/1
+10.0.2.2 - - [28/Oct/2020:18:36:29 +0900] "GET /bbs/1/1 HTTP/1.1" 200 2957 0.0027
+10.0.2.2 - - [28/Oct/2020:18:36:29 JST] "GET /bbs/1/1 HTTP/1.1" 200 2957
+http://localhost:9998/bbs/1/1 -> /bbs/1/1
+I recive ID:75 Message:14
+10.0.2.2 - - [28/Oct/2020:18:36:31 +0900] "POST /message/1/1 HTTP/1.1" 303 - 0.0219
+10.0.2.2 - - [28/Oct/2020:18:36:31 JST] "POST /message/1/1 HTTP/1.1" 303 0
+http://localhost:9998/bbs/1/1 -> /message/1/1
+10.0.2.2 - - [28/Oct/2020:18:36:31 +0900] "GET /bbs/1/1 HTTP/1.1" 200 2957 0.0024
+10.0.2.2 - - [28/Oct/2020:18:36:31 JST] "GET /bbs/1/1 HTTP/1.1" 200 2957
+http://localhost:9998/bbs/1/1 -> /bbs/1/1
+I recive ID:ac Message:15
+10.0.2.2 - - [28/Oct/2020:18:36:33 +0900] "POST /message/1/1 HTTP/1.1" 303 - 0.0210
+10.0.2.2 - - [28/Oct/2020:18:36:33 JST] "POST /message/1/1 HTTP/1.1" 303 0
+http://localhost:9998/bbs/1/1 -> /message/1/1
+10.0.2.2 - - [28/Oct/2020:18:36:33 +0900] "GET /bbs/1/1 HTTP/1.1" 200 2957 0.0023
+10.0.2.2 - - [28/Oct/2020:18:36:33 JST] "GET /bbs/1/1 HTTP/1.1" 200 2957
+http://localhost:9998/bbs/1/1 -> /bbs/1/1
+I recive ID:71 Message:16
+10.0.2.2 - - [28/Oct/2020:18:36:35 +0900] "POST /message/1/1 HTTP/1.1" 303 - 0.0206
+10.0.2.2 - - [28/Oct/2020:18:36:35 JST] "POST /message/1/1 HTTP/1.1" 303 0
+http://localhost:9998/bbs/1/1 -> /message/1/1
+10.0.2.2 - - [28/Oct/2020:18:36:35 +0900] "GET /bbs/1/1 HTTP/1.1" 200 2957 0.0016
+10.0.2.2 - - [28/Oct/2020:18:36:35 JST] "GET /bbs/1/1 HTTP/1.1" 200 2957
+http://localhost:9998/bbs/1/1 -> /bbs/1/1
+I recive ID:39 Message:17
+10.0.2.2 - - [28/Oct/2020:18:36:37 +0900] "POST /message/1/1 HTTP/1.1" 303 - 0.0220
+10.0.2.2 - - [28/Oct/2020:18:36:37 JST] "POST /message/1/1 HTTP/1.1" 303 0
+http://localhost:9998/bbs/1/1 -> /message/1/1
+10.0.2.2 - - [28/Oct/2020:18:36:37 +0900] "GET /bbs/1/1 HTTP/1.1" 200 2957 0.0018
+10.0.2.2 - - [28/Oct/2020:18:36:37 JST] "GET /bbs/1/1 HTTP/1.1" 200 2957
+http://localhost:9998/bbs/1/1 -> /bbs/1/1
+I recive ID:42 Message:18
+10.0.2.2 - - [28/Oct/2020:18:36:41 +0900] "POST /message/1/1 HTTP/1.1" 303 - 0.0216
+10.0.2.2 - - [28/Oct/2020:18:36:41 JST] "POST /message/1/1 HTTP/1.1" 303 0
+http://localhost:9998/bbs/1/1 -> /message/1/1
+10.0.2.2 - - [28/Oct/2020:18:36:41 +0900] "GET /bbs/1/1 HTTP/1.1" 200 2957 0.0023
+10.0.2.2 - - [28/Oct/2020:18:36:41 JST] "GET /bbs/1/1 HTTP/1.1" 200 2957
+http://localhost:9998/bbs/1/1 -> /bbs/1/1
+I recive ID:61 Message:19
+10.0.2.2 - - [28/Oct/2020:18:36:44 +0900] "POST /message/1/1 HTTP/1.1" 303 - 0.0233
+10.0.2.2 - - [28/Oct/2020:18:36:44 JST] "POST /message/1/1 HTTP/1.1" 303 0
+http://localhost:9998/bbs/1/1 -> /message/1/1
+10.0.2.2 - - [28/Oct/2020:18:36:44 +0900] "GET /bbs/1/1 HTTP/1.1" 200 2957 0.0022
+10.0.2.2 - - [28/Oct/2020:18:36:44 JST] "GET /bbs/1/1 HTTP/1.1" 200 2957
+http://localhost:9998/bbs/1/1 -> /bbs/1/1
+I recive ID:8d Message:20
+10.0.2.2 - - [28/Oct/2020:18:36:46 +0900] "POST /message/1/1 HTTP/1.1" 303 - 0.0190
+10.0.2.2 - - [28/Oct/2020:18:36:46 JST] "POST /message/1/1 HTTP/1.1" 303 0
+http://localhost:9998/bbs/1/1 -> /message/1/1
+10.0.2.2 - - [28/Oct/2020:18:36:46 +0900] "GET /bbs/1/1 HTTP/1.1" 200 2957 0.0016
+10.0.2.2 - - [28/Oct/2020:18:36:46 JST] "GET /bbs/1/1 HTTP/1.1" 200 2957
+http://localhost:9998/bbs/1/1 -> /bbs/1/1
+I recive ID:d8 Message:21
+10.0.2.2 - - [28/Oct/2020:18:36:49 +0900] "POST /message/1/1 HTTP/1.1" 303 - 0.0202
+10.0.2.2 - - [28/Oct/2020:18:36:49 JST] "POST /message/1/1 HTTP/1.1" 303 0
+http://localhost:9998/bbs/1/1 -> /message/1/1
+10.0.2.2 - - [28/Oct/2020:18:36:49 +0900] "GET /bbs/1/1 HTTP/1.1" 200 2957 0.0029
+10.0.2.2 - - [28/Oct/2020:18:36:49 JST] "GET /bbs/1/1 HTTP/1.1" 200 2957
+http://localhost:9998/bbs/1/1 -> /bbs/1/1
+I recive ID:ab Message:22
+10.0.2.2 - - [28/Oct/2020:18:36:51 +0900] "POST /message/1/1 HTTP/1.1" 303 - 0.0248
+10.0.2.2 - - [28/Oct/2020:18:36:51 JST] "POST /message/1/1 HTTP/1.1" 303 0
+http://localhost:9998/bbs/1/1 -> /message/1/1
+10.0.2.2 - - [28/Oct/2020:18:36:51 +0900] "GET /bbs/1/1 HTTP/1.1" 200 2957 0.0022
+10.0.2.2 - - [28/Oct/2020:18:36:51 JST] "GET /bbs/1/1 HTTP/1.1" 200 2957
+http://localhost:9998/bbs/1/1 -> /bbs/1/1
+I recive ID:84 Message:23
+10.0.2.2 - - [28/Oct/2020:18:36:52 +0900] "POST /message/1/1 HTTP/1.1" 303 - 0.0219
+10.0.2.2 - - [28/Oct/2020:18:36:52 JST] "POST /message/1/1 HTTP/1.1" 303 0
+http://localhost:9998/bbs/1/1 -> /message/1/1
+10.0.2.2 - - [28/Oct/2020:18:36:52 +0900] "GET /bbs/1/1 HTTP/1.1" 200 2957 0.0058
+10.0.2.2 - - [28/Oct/2020:18:36:52 JST] "GET /bbs/1/1 HTTP/1.1" 200 2957
+http://localhost:9998/bbs/1/1 -> /bbs/1/1
+I recive ID:02 Message:24
+10.0.2.2 - - [28/Oct/2020:18:36:55 +0900] "POST /message/1/1 HTTP/1.1" 303 - 0.0264
+10.0.2.2 - - [28/Oct/2020:18:36:55 JST] "POST /message/1/1 HTTP/1.1" 303 0
+http://localhost:9998/bbs/1/1 -> /message/1/1
+10.0.2.2 - - [28/Oct/2020:18:36:55 +0900] "GET /bbs/1/1 HTTP/1.1" 200 2957 0.0019
+10.0.2.2 - - [28/Oct/2020:18:36:55 JST] "GET /bbs/1/1 HTTP/1.1" 200 2957
+http://localhost:9998/bbs/1/1 -> /bbs/1/1
+I recive ID:f9 Message:25
+10.0.2.2 - - [28/Oct/2020:18:36:57 +0900] "POST /message/1/1 HTTP/1.1" 303 - 0.0229
+10.0.2.2 - - [28/Oct/2020:18:36:57 JST] "POST /message/1/1 HTTP/1.1" 303 0
+http://localhost:9998/bbs/1/1 -> /message/1/1
+10.0.2.2 - - [28/Oct/2020:18:36:57 +0900] "GET /bbs/1/1 HTTP/1.1" 200 2957 0.0018
+10.0.2.2 - - [28/Oct/2020:18:36:57 JST] "GET /bbs/1/1 HTTP/1.1" 200 2957
+http://localhost:9998/bbs/1/1 -> /bbs/1/1
+I recive ID:83 Message:26
+10.0.2.2 - - [28/Oct/2020:18:36:59 +0900] "POST /message/1/1 HTTP/1.1" 303 - 0.0237
+10.0.2.2 - - [28/Oct/2020:18:36:59 JST] "POST /message/1/1 HTTP/1.1" 303 0
+http://localhost:9998/bbs/1/1 -> /message/1/1
+10.0.2.2 - - [28/Oct/2020:18:36:59 +0900] "GET /bbs/1/1 HTTP/1.1" 200 2957 0.0022
+10.0.2.2 - - [28/Oct/2020:18:36:59 JST] "GET /bbs/1/1 HTTP/1.1" 200 2957
+http://localhost:9998/bbs/1/1 -> /bbs/1/1
+I recive ID:41 Message:27
+10.0.2.2 - - [28/Oct/2020:18:37:01 +0900] "POST /message/1/1 HTTP/1.1" 303 - 0.0205
+10.0.2.2 - - [28/Oct/2020:18:37:01 JST] "POST /message/1/1 HTTP/1.1" 303 0
+http://localhost:9998/bbs/1/1 -> /message/1/1
+10.0.2.2 - - [28/Oct/2020:18:37:01 +0900] "GET /bbs/1/1 HTTP/1.1" 200 2957 0.0028
+10.0.2.2 - - [28/Oct/2020:18:37:01 JST] "GET /bbs/1/1 HTTP/1.1" 200 2957
+http://localhost:9998/bbs/1/1 -> /bbs/1/1
+I recive ID:0a Message:28
+10.0.2.2 - - [28/Oct/2020:18:37:04 +0900] "POST /message/1/1 HTTP/1.1" 303 - 0.0188
+10.0.2.2 - - [28/Oct/2020:18:37:04 JST] "POST /message/1/1 HTTP/1.1" 303 0
+http://localhost:9998/bbs/1/1 -> /message/1/1
+10.0.2.2 - - [28/Oct/2020:18:37:04 +0900] "GET /bbs/1/1 HTTP/1.1" 200 2957 0.0054
+10.0.2.2 - - [28/Oct/2020:18:37:04 JST] "GET /bbs/1/1 HTTP/1.1" 200 2957
+http://localhost:9998/bbs/1/1 -> /bbs/1/1
+I recive ID:cd Message:29
+10.0.2.2 - - [28/Oct/2020:18:37:06 +0900] "POST /message/1/1 HTTP/1.1" 303 - 0.0236
+10.0.2.2 - - [28/Oct/2020:18:37:06 JST] "POST /message/1/1 HTTP/1.1" 303 0
+http://localhost:9998/bbs/1/1 -> /message/1/1
+10.0.2.2 - - [28/Oct/2020:18:37:06 +0900] "GET /bbs/1/1 HTTP/1.1" 200 2957 0.0017
+10.0.2.2 - - [28/Oct/2020:18:37:06 JST] "GET /bbs/1/1 HTTP/1.1" 200 2957
+http://localhost:9998/bbs/1/1 -> /bbs/1/1
+I recive ID:c5 Message:30
+10.0.2.2 - - [28/Oct/2020:18:37:09 +0900] "POST /message/1/1 HTTP/1.1" 303 - 0.0211
+10.0.2.2 - - [28/Oct/2020:18:37:09 JST] "POST /message/1/1 HTTP/1.1" 303 0
+http://localhost:9998/bbs/1/1 -> /message/1/1
+10.0.2.2 - - [28/Oct/2020:18:37:09 +0900] "GET /bbs/1/1 HTTP/1.1" 200 2957 0.0017
+10.0.2.2 - - [28/Oct/2020:18:37:09 JST] "GET /bbs/1/1 HTTP/1.1" 200 2957
+http://localhost:9998/bbs/1/1 -> /bbs/1/1
+I recive ID:59 Message:31
+10.0.2.2 - - [28/Oct/2020:18:37:12 +0900] "POST /message/1/1 HTTP/1.1" 303 - 0.0223
+10.0.2.2 - - [28/Oct/2020:18:37:12 JST] "POST /message/1/1 HTTP/1.1" 303 0
+http://localhost:9998/bbs/1/1 -> /message/1/1
+10.0.2.2 - - [28/Oct/2020:18:37:12 +0900] "GET /bbs/1/1 HTTP/1.1" 200 2957 0.0021
+10.0.2.2 - - [28/Oct/2020:18:37:12 JST] "GET /bbs/1/1 HTTP/1.1" 200 2957
+http://localhost:9998/bbs/1/1 -> /bbs/1/1
+I recive ID:de Message:32
+10.0.2.2 - - [28/Oct/2020:18:37:14 +0900] "POST /message/1/1 HTTP/1.1" 303 - 0.0237
+10.0.2.2 - - [28/Oct/2020:18:37:14 JST] "POST /message/1/1 HTTP/1.1" 303 0
+http://localhost:9998/bbs/1/1 -> /message/1/1
+10.0.2.2 - - [28/Oct/2020:18:37:14 +0900] "GET /bbs/1/1 HTTP/1.1" 200 2957 0.0024
+10.0.2.2 - - [28/Oct/2020:18:37:14 JST] "GET /bbs/1/1 HTTP/1.1" 200 2957
+http://localhost:9998/bbs/1/1 -> /bbs/1/1
+I recive ID:cc Message:33
+10.0.2.2 - - [28/Oct/2020:18:37:16 +0900] "POST /message/1/1 HTTP/1.1" 303 - 0.0224
+10.0.2.2 - - [28/Oct/2020:18:37:16 JST] "POST /message/1/1 HTTP/1.1" 303 0
+http://localhost:9998/bbs/1/1 -> /message/1/1
+10.0.2.2 - - [28/Oct/2020:18:37:16 +0900] "GET /bbs/1/1 HTTP/1.1" 200 2957 0.0018
+10.0.2.2 - - [28/Oct/2020:18:37:16 JST] "GET /bbs/1/1 HTTP/1.1" 200 2957
+http://localhost:9998/bbs/1/1 -> /bbs/1/1
+I recive ID:cb Message:34
+10.0.2.2 - - [28/Oct/2020:18:37:19 +0900] "POST /message/1/1 HTTP/1.1" 303 - 0.0221
+10.0.2.2 - - [28/Oct/2020:18:37:19 JST] "POST /message/1/1 HTTP/1.1" 303 0
+http://localhost:9998/bbs/1/1 -> /message/1/1
+10.0.2.2 - - [28/Oct/2020:18:37:19 +0900] "GET /bbs/1/1 HTTP/1.1" 200 2957 0.0020
+10.0.2.2 - - [28/Oct/2020:18:37:19 JST] "GET /bbs/1/1 HTTP/1.1" 200 2957
+http://localhost:9998/bbs/1/1 -> /bbs/1/1
+I recive ID:f1 Message:35
+10.0.2.2 - - [28/Oct/2020:18:37:21 +0900] "POST /message/1/1 HTTP/1.1" 303 - 0.0195
+10.0.2.2 - - [28/Oct/2020:18:37:21 JST] "POST /message/1/1 HTTP/1.1" 303 0
+http://localhost:9998/bbs/1/1 -> /message/1/1
+10.0.2.2 - - [28/Oct/2020:18:37:21 +0900] "GET /bbs/1/1 HTTP/1.1" 200 2957 0.0021
+10.0.2.2 - - [28/Oct/2020:18:37:21 JST] "GET /bbs/1/1 HTTP/1.1" 200 2957
+http://localhost:9998/bbs/1/1 -> /bbs/1/1
+I recive ID:b3 Message:36
+10.0.2.2 - - [28/Oct/2020:18:37:24 +0900] "POST /message/1/1 HTTP/1.1" 303 - 0.0197
+10.0.2.2 - - [28/Oct/2020:18:37:24 JST] "POST /message/1/1 HTTP/1.1" 303 0
+http://localhost:9998/bbs/1/1 -> /message/1/1
+10.0.2.2 - - [28/Oct/2020:18:37:24 +0900] "GET /bbs/1/1 HTTP/1.1" 200 2957 0.0014
+10.0.2.2 - - [28/Oct/2020:18:37:24 JST] "GET /bbs/1/1 HTTP/1.1" 200 2957
+http://localhost:9998/bbs/1/1 -> /bbs/1/1
+I recive ID:cd Message:37
+cd is not unique!
+I recive ID:0b Message:37
+10.0.2.2 - - [28/Oct/2020:18:37:27 +0900] "POST /message/1/1 HTTP/1.1" 303 - 0.0181
+10.0.2.2 - - [28/Oct/2020:18:37:27 JST] "POST /message/1/1 HTTP/1.1" 303 0
+http://localhost:9998/bbs/1/1 -> /message/1/1
+10.0.2.2 - - [28/Oct/2020:18:37:27 +0900] "GET /bbs/1/1 HTTP/1.1" 200 2957 0.0015
+10.0.2.2 - - [28/Oct/2020:18:37:27 JST] "GET /bbs/1/1 HTTP/1.1" 200 2957
+http://localhost:9998/bbs/1/1 -> /bbs/1/1

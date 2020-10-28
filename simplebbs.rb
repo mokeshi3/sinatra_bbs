@@ -22,9 +22,9 @@ post '/message/:page/:contents' do |page, contents|
 	# hex文字列で乱数を生成するため、72bitの乱数を生成する。
 	# SecureRandom.hex(n)はn*2の長さの文字列を返す。1文字につき4bitのデータを持つため、引数は9
     msg.id = SecureRandom.hex(1)
-    puts "I create id #{msg.id}"
 	msg.name = "#{params[:name].rstrip}"
 	msg.message = "#{params[:text].rstrip}"
+    puts "I recive ID:#{msg.id} Message:#{msg.message}"
     msg.write_time = Time.now.to_i
     if is_valid_size(msg.name, 0, 200) && is_valid_size(msg.message, 0, 1000)
       begin
