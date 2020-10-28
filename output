@@ -1,0 +1,19 @@
+[2020-10-28 16:39:42] INFO  WEBrick 1.4.2
+[2020-10-28 16:39:42] INFO  ruby 2.6.5 (2019-10-01) [x86_64-linux]
+== Sinatra (v2.1.0) has taken the stage on 4567 for production with backup from WEBrick
+[2020-10-28 16:39:42] INFO  WEBrick::HTTPServer#start: pid=2454 port=4567
+10.0.2.2 - - [28/Oct/2020:16:39:47 +0900] "POST /message/1/5 HTTP/1.1" 303 - 0.0478
+10.0.2.2 - - [28/Oct/2020:16:39:47 JST] "POST /message/1/5 HTTP/1.1" 303 0
+http://localhost:9998/bbs/1/5 -> /message/1/5
+10.0.2.2 - - [28/Oct/2020:16:39:48 +0900] "GET /bbs/1/5 HTTP/1.1" 200 2407 0.0081
+10.0.2.2 - - [28/Oct/2020:16:39:47 JST] "GET /bbs/1/5 HTTP/1.1" 200 2407
+http://localhost:9998/bbs/1/5 -> /bbs/1/5
+10.0.2.2 - - [28/Oct/2020:16:39:50 +0900] "POST /del/1/5 HTTP/1.1" 303 - 0.0244
+10.0.2.2 - - [28/Oct/2020:16:39:50 JST] "POST /del/1/5 HTTP/1.1" 303 0
+http://localhost:9998/bbs/1/5 -> /del/1/5
+10.0.2.2 - - [28/Oct/2020:16:39:50 +0900] "GET /bbs/1/5 HTTP/1.1" 200 1797 0.0019
+10.0.2.2 - - [28/Oct/2020:16:39:50 JST] "GET /bbs/1/5 HTTP/1.1" 200 1797
+http://localhost:9998/bbs/1/5 -> /bbs/1/5
+== Sinatra has ended his set (crowd applauds)
+[2020-10-28 16:39:53] INFO  going to shutdown ...
+[2020-10-28 16:39:54] INFO  WEBrick::HTTPServer#start done.

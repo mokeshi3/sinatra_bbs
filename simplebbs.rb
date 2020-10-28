@@ -21,7 +21,8 @@ post '/message/:page/:contents' do |page, contents|
 	# 鳩の巣原理と誕生日のパラドクスより、70bitの乱数でこれを達成できることがわかる
 	# hex文字列で乱数を生成するため、72bitの乱数を生成する。
 	# SecureRandom.hex(n)はn*2の長さの文字列を返す。1文字につき4bitのデータを持つため、引数は9
-	msg.id = SecureRandom.hex(9)
+    msg.id = SecureRandom.hex(1)
+    puts "I create id #{msg.id}"
 	msg.name = "#{params[:name].rstrip}"
 	msg.message = "#{params[:text].rstrip}"
     msg.write_time = Time.now.to_i
@@ -29,14 +30,13 @@ post '/message/:page/:contents' do |page, contents|
       begin
           msg.name = sanitize(msg.name)
           msg.message = sanitize(msg.message)
-          puts "name: #{msg.name}"
-          puts "message: #{msg.message}"
           msg.message = allow_html_pairs(msg.message)
           if is_valid_size(msg.name, 0, 800) && is_valid_size(msg.message, 0, 4000) != 0
               msg.save
           end
       rescue ActiveRecord::RecordNotUnique
-          redirect "/message/#{page}/#{contents}"
+        puts "#{msg.id} is not unique!"
+        call env.merge("/message/#{page}/#{contents}" => "/message/#{page}/#{contents}")
       rescue
       end
     end
@@ -85,7 +85,6 @@ get '/bbs/:page/:contents' do |page, contents|
       rest = 0
     end
 
-    puts "#{rest} #{@s.size}"
     @s = @s.take(page*contents).last(if rest >= contents then contents else rest end)
     @page = page
     @contents = contents
